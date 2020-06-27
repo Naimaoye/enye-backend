@@ -2,27 +2,21 @@ const { gql } = require("apollo-server-express");
 
 module.exports = gql`
   scalar Date
-  schema {
-    query: Query
-   
-  }
-  type Query {
-    history(id: ID!): [Location]
-  }
-  type Status {
-    message: Boolean
-  }
+
   type Location {
-    id: ID
+    id: String
     location: String
     searchType: String
-    user: ID
+    user: String
     lat: Float
     lng: Float
     distance: String
   }
 
- 
+  type Query {
+    hello: String
+    getHistory(id: String): [Location]
+  }
 
   type Geometry {
     location: MainLocation
